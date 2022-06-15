@@ -32,7 +32,7 @@
                 if (order.length == 25) {
                     const div = document.querySelector('div');
                     div.onclick = () => {
-                        window.open(`https://tajniacy.konwenty.moe/lista.html?order=${order}`, '_blank').focus();
+                        window.open(`./lista.html?order=${order}`, '_blank').focus();
                     }
                     new QRCode(div, {
                         text: `https://tajniacy.konwenty.moe/lista.html?order=${order}`,
