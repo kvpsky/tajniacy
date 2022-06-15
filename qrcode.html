@@ -1,0 +1,41 @@
+<!-- HTMLed by: kvpsky -->
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <title>Tajniacy Pyrkon 2022</title>
+        <meta charset="utf-8">
+        <style>
+            body {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                text-align: center;
+                font-size: 200%;
+            }
+            div, div * {
+                width: min(95vw, 95vh);
+                height: min(95vw, 95vh);
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+        <script src="qrcode.js"></script>
+        <script>
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            if (urlParams.has('order')) {
+                const order = urlParams.get('order');
+                if (order.length == 25) {
+                    new QRCode(document.querySelector('div'), {
+                        text: `https://tajniacy.konwenty.moe/lista.html?order=${order}`,
+                        width: 4096,
+                        height: 4096
+                    });
+                }
+            }
+        </script>
+    </body>
+</html>

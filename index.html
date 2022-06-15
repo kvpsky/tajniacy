@@ -1,0 +1,60 @@
+<!-- HTMLed by: kvpsky -->
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <title>Tajniacy Pyrkon 2022</title>
+        <meta charset="utf-8">
+        <style>
+            body {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                text-align: center;
+                font-size: 200%;
+            }
+            h1, h4, p {
+                margin-top: 0px;
+                padding-top: 0px;
+                margin-bottom: 0px;
+                padding-bottom: 0px;
+            }
+            button {
+                font-size: 100%;
+                margin-bottom: 5%;
+            }
+        </style>
+    
+    </head>
+    <body>
+        <h1>Tajniacy</h1>
+        <h4>Pyrkon 2022</h4>
+        <p>Kto zaczyna?</p>
+        <br />
+        <button id="red">Czerwoni</button>
+        <br />
+        <button id="blue">Niebiescy</button>
+        <script>
+            const shuffleArray = (array) => {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    const temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+            const generateColors = (colors) => {
+                const generate = ["W","W","W","W","W","W","W","X","R","R","R","R","R","R","R","R","B","B","B","B","B","B","B","B",colors];
+                shuffleArray(generate);
+                window.location.href = `qrcode.html?order=${generate.join("")}`;
+            }
+            document.querySelector("#red").onclick = () => {
+                generateColors("R");
+            };
+            document.querySelector("#blue").onclick = () => {
+                generateColors("B");
+            }
+        </script>
+    </body>
+</html>
