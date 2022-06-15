@@ -15,6 +15,7 @@
                 font-size: 200%;
             }
             div, div * {
+                cursor: pointer;
                 width: min(95vw, 95vh);
                 height: min(95vw, 95vh);
             }
@@ -29,7 +30,11 @@
             if (urlParams.has('order')) {
                 const order = urlParams.get('order');
                 if (order.length == 25) {
-                    new QRCode(document.querySelector('div'), {
+                    const div = document.querySelector('div');
+                    div.onclick = () => {
+                        window.open(`https://tajniacy.konwenty.moe/lista.html?order=${order}`, '_blank').focus();
+                    }
+                    new QRCode(div, {
                         text: `https://tajniacy.konwenty.moe/lista.html?order=${order}`,
                         width: 4096,
                         height: 4096
